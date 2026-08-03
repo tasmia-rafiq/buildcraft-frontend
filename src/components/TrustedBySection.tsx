@@ -11,7 +11,7 @@ export default function TrustedBySection() {
         borderBottomColor: "rgba(0, 0, 0, 0.05)",
       }}
     >
-      <Container maxWidth={false} sx={{ maxWidth: 1280 }}>
+      <Container maxWidth={false} sx={{ maxWidth: "1280px !important" }}>
         <Typography
           variant="overline"
           component="span"

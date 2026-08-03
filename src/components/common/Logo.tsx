@@ -40,7 +40,7 @@ export default function Logo() {
           fontWeight: 700,
           color: "common.white",
           fontFamily: "var(--font-playfair-display)",
-          fontSize: "1.6rem",
+          fontSize: { xs: "1.6rem" },
         }}
       >
         Build

@@ -1,30 +1,30 @@
 import { Stat, NavItem, Project, ProjectCategory, TeamMember } from "@/types";
-import { AccessTime, Email, Facebook, Instagram, LinkedIn, LocationOn, Phone, Twitter, YouTube } from "@mui/icons-material";
+import { AccessTime, Architecture, Assignment, Business, Construction, Email, Facebook, Home, Instagram, LinkedIn, LocationOn, Palette, Phone, Twitter, YouTube } from "@mui/icons-material";
 
 export const navItems: NavItem[] = [
   {
+    id: "home",
     label: "Home",
-    href: "/",
   },
   {
+    id: "about",
     label: "About",
-    href: "#about",
   },
   {
+    id: "services",
     label: "Services",
-    href: "#services",
   },
   {
+    id: "projects",
     label: "Projects",
-    href: "#projects",
   },
   {
+    id: "testimonials",
     label: "Testimonials",
-    href: "#testimonials",
   },
   {
+    id: "contact",
     label: "Contact",
-    href: "#contact",
   },
 ];
 
@@ -85,6 +85,58 @@ export const PERKS = [
   "State-of-the-art equipment",
   "24/7 project monitoring",
   "Industry-leading warranty",
+];
+
+// Services
+export const SERVICES_DATA = [
+  {
+    title: "Residential Construction",
+    description:
+      "Crafting dream homes with precision engineering and premium materials. From single-family homes to luxury estates.",
+    image:
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
+    icon: Home,
+  },
+  {
+    title: "Commercial Construction",
+    description:
+      "Building modern commercial spaces that drive business growth. Office buildings, retail centers, and mixed-use developments.",
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
+    icon: Business,
+  },
+  {
+    title: "Renovation & Remodeling",
+    description:
+      "Transforming existing spaces with innovative design and expert craftsmanship. Complete interior and exterior renovations.",
+    image:
+      "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=600&q=80",
+    icon: Construction,
+  },
+  {
+    title: "Interior Design",
+    description:
+      "Creating stunning interiors that blend aesthetics with functionality. Customized design solutions for every space.",
+    image:
+      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&q=80",
+    icon: Palette,
+  },
+  {
+    title: "Architecture & Planning",
+    description:
+      "Innovative architectural designs that push boundaries while respecting environmental and structural principles.",
+    image:
+      "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&q=80",
+    icon: Architecture,
+  },
+  {
+    title: "Project Management",
+    description:
+      "End-to-end project oversight ensuring timely delivery, budget adherence, and quality standards at every phase.",
+    image:
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80",
+    icon: Assignment,
+  },
 ];
 
 export const PROJECT_CATEGORIES: ProjectCategory[] = [

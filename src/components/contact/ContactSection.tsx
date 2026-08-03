@@ -4,8 +4,8 @@ import { Box, Grid, Typography } from "@mui/material";
 import { useRef } from "react";
 import Section from "../common/Section";
 import SectionHeader from "../common/SectionHeader";
-import ContactForm from "./ContactForm";
-import ContactInfoCard from "./ContactInfoCard";
+import ContactForm from "../contact/ContactForm";
+import ContactInfoCard from "../contact/ContactInfoCard";
 import {
   descriptionStyles,
   formWrapperStyles,

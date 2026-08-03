@@ -1,21 +1,15 @@
 "use client";
 
 import { useRef } from "react";
-
-import { Box, Container, Grid, Stack, Typography } from "@mui/material";
-
+import { Box, Grid, Stack, Typography } from "@mui/material";
 import { ArrowForward, Phone } from "@mui/icons-material";
-
-import PrimaryButton from "../common/PrimaryButton";
-
 import { useRevealAnimation } from "@/hooks/useRevealAnimation";
-
 import {
   buttonsWrapperStyles,
   contentStyles,
   sectionStyles,
 } from "./CTA.styles";
-import Section from "../common/Section";
+import PrimaryButton from "../common/PrimaryButton";
 
 export default function CTABanner() {
   const leftRef = useRef<HTMLDivElement>(null);

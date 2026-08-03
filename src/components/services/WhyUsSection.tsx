@@ -8,7 +8,7 @@ import {
   Security,
   Verified,
 } from "@mui/icons-material";
-import { Box, Container, Grid, Stack, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import {
   AccentShape1,
   AccentShape2,
@@ -60,7 +60,13 @@ const ADVANTAGES_DATA = [
 ];
 
 export default function WhyUsSection() {
+  const headerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
+
+  useRevealAnimation({
+    scope: headerRef,
+    target: headerRef,
+  });
 
   useRevealAnimation({
     scope: cardsRef,
@@ -74,12 +80,14 @@ export default function WhyUsSection() {
       <AccentShape1 />
       <AccentShape2 />
 
-      <SectionHeader
-        darkBg
-        headline="why choose us"
-        title="The BuildCraft Advantage"
-        subtitle="What sets us apart from the competition and makes us the preferred choice for premium construction services."
-      />
+      <Box ref={headerRef}>
+        <SectionHeader
+          darkBg
+          headline="why choose us"
+          title="The BuildCraft Advantage"
+          subtitle="What sets us apart from the competition and makes us the preferred choice for premium construction services."
+        />
+      </Box>
 
       {/* Card Grid */}
       <Grid container spacing={3} ref={cardsRef}>

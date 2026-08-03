@@ -1,8 +1,8 @@
 "use client";
 
 import { ArrowBack, ArrowForward } from "@mui/icons-material";
-
 import { Box, IconButton } from "@mui/material";
+import { iconBtnStyles, navigationBtnWrapperStyles } from "./Testimonials.styles";
 
 interface Props {
   active: number;
@@ -18,34 +18,23 @@ export default function TestimonialNavigation({
   onNext,
 }: Props) {
   return (
-    <Box
-      sx={{
-        mt: 5,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        gap: 2,
-      }}
-    >
+    <Box sx={navigationBtnWrapperStyles}>
       <IconButton
         onClick={onPrev}
-        sx={{
-          border: "1px solid",
-          borderColor: "divider",
-        }}
+        sx={iconBtnStyles}
       >
         <ArrowBack />
       </IconButton>
 
-      <Box>
+      <Box sx={{ display: "flex", gap: 1, }}>
         {Array.from({ length: total }).map((_, index) => (
           <Box
             key={index}
             sx={{
-              width: index === active ? 26 : 8,
-              height: 8,
+              width: index === active ? 32 : 10,
+              height: 10,
               borderRadius: 10,
-              bgcolor: index === active ? "primary.main" : "grey.300",
+              bgcolor: index === active ? "primary.main" : "rgba(0, 0, 0, 0.15)",
               transition: ".3s",
             }}
           />
@@ -54,10 +43,7 @@ export default function TestimonialNavigation({
 
       <IconButton
         onClick={onNext}
-        sx={{
-          border: "1px solid",
-          borderColor: "divider",
-        }}
+        sx={iconBtnStyles}
       >
         <ArrowForward />
       </IconButton>

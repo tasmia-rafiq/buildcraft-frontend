@@ -1,10 +1,10 @@
 "use client";
 
 import { Grid } from "@mui/material";
-import Section from "../common/Section";
 import { stats } from "@/constants";
 import { useRevealAnimation } from "@/hooks/useRevealAnimation";
 import { useRef } from "react";
+import Section from "../common/Section";
 import StatCard from "./StatCard";
 
 export default function StatsSection() {

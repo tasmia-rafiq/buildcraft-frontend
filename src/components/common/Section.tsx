@@ -20,7 +20,7 @@ export default function Section({ id, dark, sx, children }: SectionProps) {
         ...sx,
       }}
     >
-      <Container>{children}</Container>
+      <Container maxWidth={false} sx={{ maxWidth: "1280px !important" }}>{children}</Container>
     </Box>
   );
 }

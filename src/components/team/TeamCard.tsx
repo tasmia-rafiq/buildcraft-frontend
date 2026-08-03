@@ -2,18 +2,9 @@
 
 import Image from "next/image";
 
-import {
-  Box,
-  Typography,
-  IconButton,
-  Stack,
-} from "@mui/material";
+import { Box, Typography, IconButton, Stack } from "@mui/material";
 
-import {
-  LinkedIn,
-  Twitter,
-  Email,
-} from "@mui/icons-material";
+import { LinkedIn, Twitter, Email } from "@mui/icons-material";
 
 import { TeamMember } from "@/types";
 
@@ -42,6 +33,10 @@ export default function TeamCard({ member }: TeamCardProps) {
           src={member.image}
           alt={member.name}
           fill
+          sizes="(max-width: 600px) 100vw,
+         (max-width: 900px) 50vw,
+         (max-width: 1200px) 33vw,
+         25vw"
           sx={imageStyles}
         />
       </Box>
@@ -90,10 +85,7 @@ export default function TeamCard({ member }: TeamCardProps) {
           {member.name}
         </Typography>
 
-        <Typography
-          variant="body2"
-          sx={{ color: "primary.main" }}
-        >
+        <Typography variant="body2" sx={{ color: "primary.main" }}>
           {member.role}
         </Typography>
       </Box>

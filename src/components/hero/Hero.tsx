@@ -8,7 +8,8 @@ import PrimaryButton from "../common/PrimaryButton";
 import {
   bottomCircleStyles,
   HeroAccentLine,
-  HeroSection,
+  heroContainerStyles,
+  HeroSectionStyles,
   primaryButtonStyles,
   secondaryButtonStyles,
   topCircleStyles,
@@ -21,7 +22,6 @@ gsap.registerPlugin(useGSAP);
 
 export default function Hero() {
   const sectionRef = useRef<HTMLDivElement>(null);
-
   const contentRef = useRef<HTMLDivElement>(null);
 
   useRevealAnimation({
@@ -30,7 +30,7 @@ export default function Hero() {
   });
 
   return (
-    <HeroSection ref={sectionRef}>
+    <Box ref={sectionRef} component="section" id="home" sx={HeroSectionStyles}>
       {/* Decorative Circles */}
       <Box sx={topCircleStyles} data-decoration />
 
@@ -38,11 +38,11 @@ export default function Hero() {
 
       <Container
         maxWidth={false}
-        sx={{ pt: { md: 12 }, pb: { md: 20 }, maxWidth: "1280px" }}
+        sx={heroContainerStyles}
       >
-        <Grid container>
+        <Grid container sx={{ pt: { xs: 14, md: 0 }, px: { xs: 3, md: 0 } }}>
           <Grid size={{ xs: 12, md: 8, lg: 7 }}>
-            <Stack spacing={3} ref={contentRef}>
+            <Stack ref={contentRef}>
               <HeroAccentLine />
 
               <Typography
@@ -53,12 +53,13 @@ export default function Hero() {
                   fontSize: "0.85rem",
                   lineHeight: 2,
                   letterSpacing: "0.15em",
+                  mb: 2,
                 }}
               >
                 AWARD-WINNING CONSTRUCTION COMPANY
               </Typography>
 
-              <Typography variant="h1">
+              <Typography variant="h1" sx={{ mb: 3 }}>
                 We Build{" "}
                 <Box component="span" sx={{ color: "primary.main" }}>
                   Your Vision
@@ -71,7 +72,7 @@ export default function Hero() {
                 sx={{
                   color: "text.primary",
                   maxWidth: 550,
-                  mb: "20px !important",
+                  mb: 5,
                 }}
               >
                 From concept to completion, we deliver exceptional construction
@@ -107,10 +108,12 @@ export default function Hero() {
             </Stack>
           </Grid>
         </Grid>
-      </Container>
 
-      {/* Animated Stats Counter */}
-      <StatsCounter />
-    </HeroSection>
+        <>
+          {/* Animated Stats Counter */}
+          <StatsCounter />
+        </>
+      </Container>
+    </Box>
   );
 }

@@ -60,6 +60,8 @@ export default function AnimatedCounter({
         alignItems: "center",
         justifyContent: "center",
         fontFamily: "var(--font-inter) sans-serif",
+        fontSize: { xs: "2.5rem", sm: "3.5rem" },
+        fontWeight: 800,
       }}
     >
       <Box

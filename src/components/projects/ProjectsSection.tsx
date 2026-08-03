@@ -3,34 +3,33 @@
 import { useMemo, useRef, useState } from "react";
 import { Box, Chip, Grid, Stack } from "@mui/material";
 import { ArrowForward } from "@mui/icons-material";
-
-import SectionHeader from "../common/SectionHeader";
-import PrimaryButton from "../common/PrimaryButton";
-
 import { useRevealAnimation } from "@/hooks/useRevealAnimation";
 import { ProjectCategory } from "@/types";
 import { PROJECT_CATEGORIES, PROJECTS } from "@/constants";
-import ProjectCard from "./ProjectCard";
-import Section from "../common/Section";
-import {
-  chipItemsStyles,
-  chipsWrapperStyles,
-  primaryBtnStyles,
-  projectsGridStyles,
-  viewAllButtonWrapperStyles,
-} from "./Projects.styles";
 import { useAnimatedFilter } from "@/hooks/useAnimatedFilter";
 import { gsap } from "@/utils/gsap";
+import Section from "../common/Section";
+import SectionHeader from "../common/SectionHeader";
+import { chipItemsStyles, chipsWrapperStyles, primaryBtnStyles, projectsGridStyles, viewAllButtonWrapperStyles } from "./Projects.styles";
+import ProjectCard from "./ProjectCard";
+import PrimaryButton from "../common/PrimaryButton";
 
 export default function ProjectsSection() {
   const [category, setCategory] = useState<ProjectCategory>("All");
 
   const projectsRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+
+  useRevealAnimation({
+    scope: headerRef,
+    target: headerRef,
+  });
 
   useRevealAnimation({
     scope: projectsRef,
     target: projectsRef,
     selector: "[data-project]",
+    delay: 0.2,
   });
 
   const filteredProjects = useMemo(() => {
@@ -70,11 +69,13 @@ export default function ProjectsSection() {
 
   return (
     <Section id="projects">
-      <SectionHeader
-        headline="our portfolio"
-        title="Featured Projects"
-        subtitle="Explore our portfolio of completed projects showcasing our commitment to quality, innovation, and architectural excellence."
-      />
+      <Box ref={headerRef}>
+        <SectionHeader
+          headline="our portfolio"
+          title="Featured Projects"
+          subtitle="Explore our portfolio of completed projects showcasing our commitment to quality, innovation, and architectural excellence."
+        />
+      </Box>
 
       <Stack direction="row" spacing={1.5} sx={chipsWrapperStyles}>
         {PROJECT_CATEGORIES.map((item) => (

@@ -11,23 +11,28 @@ import {
 import Logo from "../common/Logo";
 import { navItems } from "@/constants";
 import { Phone } from "@mui/icons-material";
-import { NavButtonStyles, quoteButtonStyles } from "./Navbar.styles";
-import Link from "next/link";
+import {
+  NavButtonStyles,
+  navHeaderStyles,
+  quoteButtonStyles,
+} from "./Navbar.styles";
+import MobileMenu from "./MobileMenu";
+import { useScrollToSection } from "@/hooks/useScrollToSection";
+import { useNavbar } from "@/hooks/useNavbar";
 
 export default function Navbar() {
+  const { activeSection, scrolled } = useNavbar();
+  const scrollToSection = useScrollToSection();
+
   return (
-    <AppBar
-      elevation={0}
-      position="fixed"
-      color="transparent"
-    >
+    <AppBar elevation={0} position="fixed" sx={navHeaderStyles(scrolled)}>
       <Container maxWidth="xl">
         <Toolbar
           component="nav"
           disableGutters
           sx={{
             justifyContent: "space-between",
-            minHeight: { xs: 48, sm: 64, md: 80 },
+            minHeight: { xs: 70, md: 80 },
           }}
         >
           {/* LOGO */}
@@ -36,15 +41,21 @@ export default function Navbar() {
           {/* Navigation Links */}
           <Box
             component="div"
-            sx={{ display: "flex", alignItems: "center", gap: 1 }}
+            sx={{
+              display: {
+                xs: "none",
+                lg: "flex",
+              },
+              alignItems: "center",
+              gap: 1,
+            }}
           >
-            {navItems.map((item, index) => {
-              const active = index === 0;
+            {navItems.map((item) => {
+              const active = activeSection === item.id;
               return (
                 <Button
                   key={item.label}
-                  href={item.href}
-                  LinkComponent={Link}
+                  onClick={() => scrollToSection(item.id)}
                   sx={NavButtonStyles(active)}
                 >
                   {item.label}
@@ -55,7 +66,14 @@ export default function Navbar() {
 
           {/* CTA Buttons */}
           <Box
-            sx={{ display: "flex", alignItems: "center", gap: 2 }}
+            sx={{
+              display: {
+                xs: "none",
+                lg: "flex",
+              },
+              alignItems: "center",
+              gap: 2,
+            }}
           >
             <Box
               sx={{
@@ -83,13 +101,13 @@ export default function Navbar() {
               </Typography>
             </Box>
 
-            <Button
-              variant="contained"
-              sx={quoteButtonStyles}
-            >
+            <Button variant="contained" sx={quoteButtonStyles} onClick={() => scrollToSection("contact")}>
               Get a Quote
             </Button>
           </Box>
+
+          {/* Mobile */}
+          <MobileMenu />
         </Toolbar>
       </Container>
     </AppBar>

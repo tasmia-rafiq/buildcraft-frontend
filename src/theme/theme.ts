@@ -31,6 +31,9 @@ export const theme = createTheme({
       letterSpacing: "-0.02em",
       fontFamily: "var(--font-playfair-display), Georgia, serif",
       color: "white",
+      "@media (max-width: 600px)": {
+        fontSize: "3.15rem",
+      },
     },
     h2: {
       fontSize: "3.25rem",
@@ -39,6 +42,9 @@ export const theme = createTheme({
       lineHeight: 1.15,
       color: "black",
       fontFamily: "var(--font-playfair-display), Georgia, serif",
+      "@media (max-width: 600px)": {
+        fontSize: "2rem",
+      },
     },
     h5: {
       fontWeight: 700,
@@ -57,6 +63,10 @@ export const theme = createTheme({
       fontSize: "1.05rem",
       color: "#6b7280",
       lineHeight: 1.9,
+      "@media (max-width: 600px)": {
+        fontSize: "0.95rem",
+        lineHeight: 1.7,
+      },
     },
     body2: {
       fontWeight: 500,
@@ -92,7 +102,6 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           px: { xs: 2, sm: 3 },
-          maxWidth: "1280px !important"
         },
       },
     },

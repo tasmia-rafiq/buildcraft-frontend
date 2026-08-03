@@ -27,10 +27,15 @@ export function useRevealAnimation({
       if (!target.current) return;
 
       const elements = selector
-        ? target.current.querySelectorAll(selector)
-        : target.current.children;
+        ? gsap.utils.toArray(selector, target.current)
+        : Array.from(target.current.children);
 
       const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: target.current,
+          start: "top 80%",
+          once: true,
+        },
         defaults: {
           ease: "power3.out",
         },
@@ -44,11 +49,6 @@ export function useRevealAnimation({
         delay,
         stagger,
         clearProps: "all",
-        scrollTrigger: {
-          trigger: target.current,
-          start: "top 80%",
-          once: true,
-        },
       });
     },
     {

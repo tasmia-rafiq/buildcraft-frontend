@@ -1,5 +1,13 @@
 import { SxProps, Theme } from "@mui/material";
 
+export const navHeaderStyles = (scrolled: boolean): SxProps<Theme> => ({
+  backgroundColor: scrolled ? "rgba(10,10,10,.95)" : "transparent",
+  backdropFilter: scrolled ? "blur(20px)" : "none",
+  WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
+  transition: "background-color .35s ease, backdrop-filter .35s ease",
+  boxShadow: scrolled ? "0 10px 40px rgba(0,0,0,.15)" : "none",
+});
+
 export const NavButtonStyles = (active: boolean): SxProps<Theme> => ({
   position: "relative",
   color: active ? "primary.main" : "text.primary",
@@ -44,19 +52,3 @@ export const quoteButtonStyles: SxProps<Theme> = {
   },
   boxShadow: "rgba(245, 166, 35, 0.35) 0px 4px 14px",
 };
-
-// export const ThemeCTAButton = styled(Button)(({ theme }) => ({
-//   padding: theme.spacing(1.2, 3),
-//   borderRadius: "4px",
-//   fontWeight: 600,
-//   fontSize: "0.95rem",
-//   backgroundColor: theme.palette.primary.main,
-//   color: "#111111",
-//   boxShadow: "rgba(245, 166, 35, 0.35) 0px 4px 14px",
-//   transition: "all .3s ease",
-//   "&:hover": {
-//     backgroundColor: theme.palette.primary.dark,
-//     boxShadow: "rgba(245, 166, 35, 0.5) 0px 6px 20px",
-//     transform: "translateY(-2px)",
-//   },
-// }));

@@ -13,14 +13,14 @@ import AnimatedCounter from "./AnimatedCounter";
 import { useRevealAnimation } from "@/hooks/useRevealAnimation";
 
 export const statsWrapperStyles: SxProps<Theme> = {
-  position: "absolute",
+  position: { xs: "relative", md: "absolute" },
   left: 0,
   right: 0,
   bottom: 0,
   backdropFilter: "blur(24px)",
   bgcolor: "rgba(10,10,10,.82)",
   borderTop: "1px solid rgba(245,166,35,.15)",
-  py: 4,
+  py: 3.5,
   zIndex: 2,
 };
 
@@ -37,7 +37,7 @@ export default function StatsCounter() {
       <Container
         maxWidth={false}
         sx={{
-          maxWidth: 1280,
+          maxWidth: "1280px !important",
           mx: "auto",
         }}
       >

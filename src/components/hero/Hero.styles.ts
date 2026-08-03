@@ -1,8 +1,8 @@
 import { Box, styled, SxProps, Theme } from "@mui/material";
 
-export const HeroSection = styled(Box)(({ theme }) => ({
+export const HeroSectionStyles: SxProps<Theme> = {
   position: "relative",
-  minHeight: "100vh",
+  minHeight: { xs: "100%", md: "100vh" },
   backgroundImage: `
           linear-gradient(135deg, rgba(10, 10, 10, 0.92) 0%, rgba(10, 10, 10, 0.6) 50%, rgba(10, 10, 10, 0.85) 100%),
           url("https://images.unsplash.com/photo-1541976590-713941681591?w=1920&q=80")
@@ -14,16 +14,24 @@ export const HeroSection = styled(Box)(({ theme }) => ({
   alignItems: "center",
   overflow: "hidden",
   width: "100%",
-  [theme.breakpoints.down("md")]: {
-    alignItems: "flex-start",
-  },
-}));
+};
+
+export const heroContainerStyles: SxProps<Theme> = {
+  pt: { md: 12 },
+  pb: { md: 20 },
+  px: { xs: 0, md: 3 },
+  maxWidth: "1280px !important",
+  display: "flex",
+  flexDirection: "column",
+  gap: { xs: 10, md: 0 },
+};
 
 export const HeroAccentLine = styled(Box)(({ theme }) => ({
   width: 60,
   height: 4,
   backgroundColor: theme.palette.primary.main,
   borderRadius: 999,
+  marginBottom: 24,
 }));
 
 export const topCircleStyles: SxProps<Theme> = {
