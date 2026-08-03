@@ -1,8 +1,6 @@
 # BuildCraft Landing Page
 
-## Project Setup
-
-## Installation
+## Project Setup & Installation
 **Clone the repo:**
 
 ```
